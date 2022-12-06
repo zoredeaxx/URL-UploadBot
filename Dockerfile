@@ -3,8 +3,8 @@ FROM python:3.10-slim-buster
 RUN apt-get update && apt-get install -y software-properties-common
 
 RUN add-apt-repository ppa:jonathonf/ffmpeg-4
-RUN apt-get update && apt-get install -y ffmpeg
-#RUN apt install ffmpeg
+#RUN apt-get update && apt-get install -y ffmpeg
+RUN apt install ffmpeg
 
 WORKDIR .
 COPY . .
