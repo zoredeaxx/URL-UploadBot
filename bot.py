@@ -1,6 +1,6 @@
 
 # (c) Shrimadhav U K | Modifieded By @oVo-HxBots 
-
+from wserver import keep_alive
 import os
 from config import Config
 from pyrogram import Client as Clinton
@@ -16,3 +16,4 @@ if __name__ == "__main__" :
     api_hash=Config.API_HASH,
     plugins=plugins)
     Warrior.run()
+keep_alive()
