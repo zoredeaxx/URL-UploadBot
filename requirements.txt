@@ -16,3 +16,4 @@ pyrogram==1.4.12
 user_agent
 bs4
 ffmpeg-python
+flask
