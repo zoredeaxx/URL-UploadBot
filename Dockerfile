@@ -12,5 +12,5 @@ RUN pip3 install -r requirements.txt
 
 ENV PORT 8080
 EXPOSE 8080 
-CMD ["bash", "Install_ffmpeg.sh"]
+CMD ["bash", "install_ffmpeg.sh"]
 CMD ["python3", "bot.py"]
