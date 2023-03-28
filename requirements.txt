@@ -15,6 +15,4 @@ beautifulsoup4
 pyrogram==1.4.12
 user_agent
 bs4
-git+https://github.com/Rapptz/discord.py
-ffmpeg
 flask
