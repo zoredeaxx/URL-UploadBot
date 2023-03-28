@@ -15,5 +15,5 @@ beautifulsoup4
 pyrogram==1.4.12
 user_agent
 bs4
-https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest
+ffmpeg-python
 flask
