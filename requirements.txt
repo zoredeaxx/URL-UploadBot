@@ -12,8 +12,9 @@ aiofiles
 dnspython
 tldextract
 beautifulsoup4
-pyrogram==1.4.12
+git+https://github.com/MKN-BOTZ/pyrogram
+#pyrogram==1.4.12
 user_agent
 bs4
 flask
-pyrofork
+#pyrofork
