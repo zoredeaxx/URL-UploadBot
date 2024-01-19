@@ -1,3 +1,4 @@
+motor
 numpy
 Pillow
 yt-dlp
@@ -11,7 +12,6 @@ aiofiles
 dnspython
 tldextract
 beautifulsoup4
-pyrogram==1.4.12
 user_agent
 bs4
 pyrogram==1.4.16
