@@ -1,4 +1,3 @@
-motor
 numpy
 Pillow
 yt-dlp
@@ -12,9 +11,14 @@ aiofiles
 dnspython
 tldextract
 beautifulsoup4
-git+https://github.com/MKN-BOTZ/pyrogram
-#pyrogram==1.4.12
+pyrogram==1.4.12
 user_agent
 bs4
-flask
-#pyrofork
+pyrogram==1.4.16
+pyromod==1.5
+ffmpeg
+asyncio
+pycurl
+humanize
+flask==2.2.2
+gunicorn==20.1.0
