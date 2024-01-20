@@ -13,7 +13,6 @@ dnspython
 tldextract
 beautifulsoup4
 pyrogram
-pyromod==1.5
 user_agent
 bs4
 flask
