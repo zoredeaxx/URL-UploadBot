@@ -20,13 +20,13 @@ async def button(bot, update):
                 await bot.edit_message_text(
                     text="Download cancelled!",
                     chat_id=update.message.chat.id,
-                    message_id=update.message.message_id
+                    message_id=update.message.id
                 )
             except:
                 await bot.edit_message_text(
                     text="An error has occurred :(",
                     chat_id=update.message.chat.id,
-                    message_id=update.message.message_id
+                    message_id=update.message.id
                 )
         else:
             await youtube_dl_call_back(bot, update)
