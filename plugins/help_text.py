@@ -12,7 +12,7 @@ from config import Config
 # the Strings used for this "thing"
 from plugins.startmsg import Translation
 
-from pyrogram import filters
+from pyrogram import filters, enums
 from database.adduser import AddUser
 from pyrogram import Client as Clinton
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
@@ -27,17 +27,17 @@ async def cancel_process(bot, update):
         await bot.send_message(
             chat_id=update.chat.id,
             text=Translation.PROCESS_CANCELLED,
-            parse_mode="html",
+            parse_mode=enums.ParseMode.HTML,
             disable_web_page_preview=True,
-            reply_to_message_id=update.message_id
+            reply_to_message_id=update.id
         )
     else:
         await bot.send_message(
             chat_id=update.chat.id,
             text=Translation.NO_PROCESS_FOUND,
-            parse_mode="html",
+            parse_mode=enums.ParseMode.HTML,
             disable_web_page_preview=True,
-            reply_to_message_id=update.message_id
+            reply_to_message_id=update.id
         )
 
 @Clinton.on_message(filters.private & filters.reply & filters.text)
@@ -46,7 +46,7 @@ async def edit_caption(bot, update):
         await bot.send_cached_media(
             chat_id=update.chat.id,
             file_id=update.reply_to_message.video.file_id,
-            reply_to_message_id=update.message_id,
+            reply_to_message_id=update.id,
             caption=update.text
         )
     except:
@@ -54,7 +54,7 @@ async def edit_caption(bot, update):
             await bot.send_cached_media(
                 chat_id=update.chat.id,
                 file_id=update.reply_to_message.document.file_id,
-                reply_to_message_id=update.message_id,
+                reply_to_message_id=update.id,
                 caption=update.text
             )
         except:
@@ -67,7 +67,7 @@ async def help_user(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.HELP_USER,
-        parse_mode="html",
+        parse_mode=enums.ParseMode.HTML,
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
         [
@@ -76,7 +76,7 @@ async def help_user(bot, update):
           ]
         ]
        ),
-       reply_to_message_id=update.message_id
+       reply_to_message_id=update.id
      )
 
 @Clinton.on_message(filters.private & filters.command(["caption"]))
@@ -84,8 +84,8 @@ async def add_caption_help(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.ADD_CAPTION_HELP,
-        parse_mode="html",
-        reply_to_message_id=update.message_id
+        parse_mode=enums.ParseMode.HTML,
+        reply_to_message_id=update.id
     )
 
 @Clinton.on_message(filters.private & filters.command(["about"]))
@@ -93,7 +93,7 @@ async def about(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.ABOUT_TEXT,
-        parse_mode="html",
+        parse_mode=enums.ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(
         [
           [
@@ -101,7 +101,7 @@ async def about(bot, update):
           ]
         ]
        ),
-       reply_to_message_id=update.message_id
+       reply_to_message_id=update.id
      )
 
 @Clinton.on_message(filters.private & filters.command(["start"]))
@@ -122,7 +122,7 @@ async def start(bot, update):
           ]
         ]
       ),
-      reply_to_message_id=update.message_id
+      reply_to_message_id=update.id
     )
 
 @Clinton.on_message(filters.private & filters.command(["info"]))
@@ -135,5 +135,5 @@ async def add_info_help(bot, update):
         chat_id=update.chat.id,
         text=Translation.INFO_TEXT.format(update.from_user.first_name, last_name, update.from_user.username, update.from_user.id, update.from_user.mention, update.from_user.dc_id, update.from_user.language_code, update.from_user.status),
         #parse_mode="html",
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.id
     )
