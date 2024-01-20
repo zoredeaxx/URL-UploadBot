@@ -12,7 +12,7 @@ aiofiles
 dnspython
 tldextract
 beautifulsoup4
-pyrogram==1.4.16
+pyrogram
 pyromod==1.5
 user_agent
 bs4
