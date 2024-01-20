@@ -10,7 +10,7 @@ from config import Config
 from database.adduser import AddUser
 from plugins.startmsg import Translation
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
-from pyrogram import filters
+from pyrogram import filters, enums
 from pyrogram import Client as Clinton
 from database.access import clinton
 from helper_funcs.display_progress import humanbytes
@@ -29,7 +29,7 @@ async def echo(bot, update):
         await bot.edit_message_text(
             text=Translation.WAIT_PROCESS_FINISH,
             chat_id=update.chat.id,
-            message_id=imog.message_id
+            message_id=imog.id
         )
         return False
     youtube_dl_username = None
@@ -103,7 +103,7 @@ async def echo(bot, update):
     await bot.edit_message_text(
         text="<b>Processing... ⌛</b>",
         chat_id=update.chat.id,
-        message_id=imog.message_id
+        message_id=imog.id
     )
     time.sleep(0.7)
     e_response = stderr.decode().strip()
@@ -117,7 +117,7 @@ async def echo(bot, update):
             chat_id=update.chat.id,
             text=Translation.NO_VOID_FORMAT_FOUND.format(str(error_message)),
             reply_to_message_id=update.message_id,
-            parse_mode="html",
+            parse_mode=enums.ParseMode.HTML,
             disable_web_page_preview=True
         )
         return False
@@ -235,8 +235,8 @@ async def echo(bot, update):
             chat_id=update.chat.id,
             text=Translation.FORMAT_SELECTION,
             reply_markup=reply_markup,
-            parse_mode="html",
-            reply_to_message_id=update.message_id
+            parse_mode=enums.ParseMode.HTML,
+            reply_to_message_id=update.id
         )
     else:
         # fallback for nonnumeric port a.k.a seedbox.io
@@ -261,6 +261,6 @@ async def echo(bot, update):
             chat_id=update.chat.id,
             text=Translation.FORMAT_SELECTION,
             reply_markup=reply_markup,
-            parse_mode="html",
-            reply_to_message_id=update.message_id
+            parse_mode=enums.ParseMode.HTML,
+            reply_to_message_id=update.id
         )
