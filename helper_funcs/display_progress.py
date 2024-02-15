@@ -7,6 +7,14 @@ import math, os, time, shutil
 from config import Config
 from plugins.startmsg import Translation
 
+PROGRESS = """
+⏳ **Percentage:** `{0}%`
+✅ **Done:** `{1}`
+💠 **Total:** `{2}`
+📶 **Speed:** `{3}/s`
+🕰 **ETA:** `{4}`
+"""
+
 async def progress_for_pyrogram(
     current,
     total,
@@ -28,12 +36,13 @@ async def progress_for_pyrogram(
         estimated_total_time = TimeFormatter(milliseconds=estimated_total_time)
 
         progress = "[{0}{1}] {2}%\n".format(
-            ''.join(["▓" for i in range(math.floor(percentage / 10))]),
-            ''.join(["░" for i in range(10 - math.floor(percentage / 10))]),
-            round(percentage, 2),
+            ''.join(["●" for i in range(math.floor(percentage / 5))]),
+            ''.join(["○" for i in range(20 - math.floor(percentage / 5))]),
+            #round(percentage, 2),
             filename
         )
-        tmp = progress + """🔸<b>Dᴏɴᴇ</b> ✅: {0} of {1}\n🔸<b>Sᴘᴇᴇᴅ</b> 🚀: {2}/s\n🔸<b>Tɪᴍᴇ</b> 🕒: {3}""".format(
+        tmp = progress + PROGRESS.format( #"""🔸<b>Dᴏɴᴇ</b> ✅: {0} of {1}\n🔸<b>Sᴘᴇᴇᴅ</b> 🚀: {2}/s\n🔸<b>Tɪᴍᴇ</b> 🕒: {3}""".format(
+            round(percentage, 2),
             humanbytes(current),
             humanbytes(total),
             humanbytes(speed),
@@ -41,7 +50,7 @@ async def progress_for_pyrogram(
         )
         try:
             await message.edit(
-                text="{}\n {}".format(
+                text="{}\n\n {}".format(
                     ud_type,
                     tmp
                 )
