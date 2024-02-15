@@ -203,8 +203,8 @@ async def download_coroutine(bot, session, url, file_name, chat_id, message_id, 
     downloaded = 0
     display_message = ""
     async with session.get(url, timeout=Config.PROCESS_MAX_TIMEOUT) as response:
-        total_length = int(response.headers["Content-Length"])
-        content_type = response.headers["Content-Type"]
+        total_length = int(response.headers.get("Content-Length", 0))
+        content_type = response.headers.get("Content-Type", "")
         if "text" in content_type and total_length < 500:
             return await response.release()
         with open(file_name, "wb") as f_handle:
@@ -213,30 +213,23 @@ async def download_coroutine(bot, session, url, file_name, chat_id, message_id, 
                 if not chunk:
                     break
                 f_handle.write(chunk)
-                downloaded += Config.CHUNK_SIZE
+                downloaded += len(chunk)
                 now = time.time()
                 diff = now - start
                 if round(diff % 5.00) == 0 or downloaded == total_length:
-                    percentage = downloaded * 100 / total_length
+                    percentage = (downloaded * 100) / total_length if total_length > 0 else 0
                     speed = downloaded / diff
                     elapsed_time = round(diff) * 1000
-                    time_to_completion = round(
-                        (total_length - downloaded) / speed) * 1000
+                    time_to_completion = round((total_length - downloaded) / speed) * 1000 if speed > 0 else 0
                     estimated_total_time = elapsed_time + time_to_completion
                     try:
-                        current_message = """**DOWNLOADING**
-URL: `{}`
-
-File Size: {}
-
-Downloaded: {}
-
-ETA: {}""".format(
-    url,
-    humanbytes(total_length),
-    humanbytes(downloaded),
-    TimeFormatter(estimated_total_time)
-)
+                        current_message = (
+                            "**DOWNLOADING**\n"
+                            f"URL: `{url}`\n"
+                            f"File Size: {humanbytes(total_length)}\n"
+                            f"Downloaded: {humanbytes(downloaded)}\n"
+                            f"ETA: {TimeFormatter(estimated_total_time)}"
+                        )
                         if current_message != display_message:
                             await bot.edit_message_text(
                                 chat_id,
