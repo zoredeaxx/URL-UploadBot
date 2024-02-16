@@ -272,12 +272,12 @@ async def youtube_dl_call_back(bot, update):
                 os.remove(thumbnail)
             except:
                 pass
-            await bot.edit_message_text(
-                text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS.format(time_taken_for_download, time_taken_for_upload),
-                chat_id=update.message.chat.id,
-                message_id=update.message.id,
-                disable_web_page_preview=True
-            )
+            #await bot.edit_message_text(
+                #text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS.format(time_taken_for_download, time_taken_for_upload),
+                #chat_id=update.message.chat.id,
+                #message_id=update.message.id,
+                #disable_web_page_preview=True
+            #)
             logger.info("✅ " + custom_file_name)
             logger.info("✅ Downloaded in: " + str(time_taken_for_download))
             logger.info("✅ Uploaded in: " + str(time_taken_for_upload))
