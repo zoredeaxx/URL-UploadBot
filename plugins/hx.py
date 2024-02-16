@@ -225,11 +225,11 @@ async def download_coroutine(bot, session, url, file_name, chat_id, message_id, 
                     try:
                         current_message = (
                             "**DOWNLOADING**\n"
-                            f"URL: `{url}`\n\n"
+                            #f"**URL:** `{url}`\n\n"
                             f"⏳ **Percentage:** {round(percentage, 2)}%\n"
                             f"💠 **File Size:** {humanbytes(total_length)}\n"
                             f"✅ **Done:** {humanbytes(downloaded)}\n"
-                            f"📶 **Speed:** {humanbytes(speed)}\n"
+                            f"📶 **Speed:** {humanbytes(speed)}/s\n"
                             f"🕰 **ETA:** {TimeFormatter(estimated_total_time)}"
                         )
                         if current_message != display_message:
