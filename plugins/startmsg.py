@@ -25,9 +25,9 @@ You can now send a new URL."""
     UPLOAD_START = "📤 UPLOADING..."
     RCHD_TG_API_LIMIT = "<b>Downloaded in:</b> {} seconds.\n<b>Detected file size:</b> {}.\n\nSorry. But, I cannot upload files greater than 2GB due to Telegram API limitations 😕."
     #AFTER_SUCCESSFUL_UPLOAD_MSG = "𝘛𝘏𝘈𝘕𝘒𝘚 𝘍𝘖𝘙 𝘜𝘚𝘐𝘕𝘎 𝘔𝘌 🥰"
-    AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "𝘛𝘏𝘈𝘕𝘒𝘚 𝘍𝘖𝘙 𝘜𝘚𝘐𝘕𝘎 𝘔𝘌 🥰\n\n@HxBots | @HxSupport"
-    SAVED_CUSTOM_THUMB_NAIL = "Save Your Thumbnail ✅."
-    DEL_ETED_CUSTOM_THUMB_NAIL = " Delete Your Thumbnail ✅."
+    AFTER_SUCCESSFUL_UPLOAD_MSG_WITH_TS = "Uploaded Successfully!"
+    SAVED_CUSTOM_THUMB_NAIL = "Thumbnail Saved ✅."
+    DEL_ETED_CUSTOM_THUMB_NAIL = "Thumbnail Deleted ✅."
     CUSTOM_CAPTION_UL_FILE = "{}"
     NO_VOID_FORMAT_FOUND = """<b>I think you have entered an unaccessible url or a private url.</b>
 <i>Go check if you can access the content in the url from your browser first!</i>
@@ -55,7 +55,7 @@ You can now send a new URL."""
 
 <b>🔘 Language :</b> <a href="https://www.python.org/">Python 3.10.8</a>
 
-<b>🔘 Framework :</b> <a href="https://docs.pyrogram.org/">Pyrogram 1.4.16</a>
+<b>🔘 Framework :</b> <a href="https://docs.pyrogram.org/">Pyrogram 2.0.106</a>
 
 <b>🔘 Creater :</b> @Kiridewal"""
 
@@ -63,7 +63,7 @@ You can now send a new URL."""
     ERR_ONLY_TWO_MEDIA_IN_ALBUM = "Media Album should contain only two photos. Please re-send the media album, and then try again, or send only two photos in an album."
     CANCEL_STR = "❌ Cancelled ❌"
     ZIP_UPLOADED_STR = "Uploaded {} files in {} seconds."
-    SLOW_URL_DECED = "Gosh that seems to be a very slow URL. Since you were screwing my home, I am in no mood to download this file. Meanwhile, why don't you try this:==> https://shrtz.me/PtsVnf6 and get me a fast URL so that I can upload to Telegram, without me slowing down for other users."
+    SLOW_URL_DECED = "Gosh that seems to be a very slow URL. Since you were screwing my time, I am in no mood to download this file. Meanwhile, why don't you try transloading and get me a fast URL so that I can upload to Telegram, without me slowing down for other users."
 
     INFO_TEXT = """
 🌸 First Name : <b>{}</b>
