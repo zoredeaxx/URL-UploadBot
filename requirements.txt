@@ -12,7 +12,7 @@ aiofiles
 dnspython
 tldextract
 beautifulsoup4
-pyrogram
+git+https://github.com/Masterolic/pyrogram.git
 user_agent
 bs4
 flask
