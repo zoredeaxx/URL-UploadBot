@@ -12,7 +12,8 @@ aiofiles
 dnspython
 tldextract
 beautifulsoup4
-git+https://github.com/KurimuzonAkuma/pyrogram.git
+#git+https://github.com/KurimuzonAkuma/pyrogram.git
+pyroblack
 user_agent
 bs4
 flask
